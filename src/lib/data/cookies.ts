@@ -1,7 +1,7 @@
 import "server-only"
 import { cookies } from "next/headers"
 
-export const getAuthHeaders = (): { authorization: string } | {} => {
+export const getAuthHeaders = async (): { authorization: string } | {} => {
   const cookieStore = await cookies();
   const token = cookieStore().get("_medusa_jwt")?.value
 
