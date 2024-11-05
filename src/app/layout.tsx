@@ -5,6 +5,8 @@ import "styles/globals.css"
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL()),
 }
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
