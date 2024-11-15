@@ -6,7 +6,7 @@ export default async function FeaturedProducts({
   region,
 }: {
   collections: HttpTypes.StoreCollection[]
-  region: HttpTypes.StoreRegion
+  region?: HttpTypes.StoreRegion
 }) {
   return collections.map((collection) => (
     <li key={collection.id}>

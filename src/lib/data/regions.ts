@@ -18,6 +18,14 @@ export const retrieveRegion = cache(async function (id: string) {
 })
 
 const regionMap = new Map<string, HttpTypes.StoreRegion>()
+// const defaultRegion: HttpTypes.StoreRegion = {
+//   id: "default-region",
+//   name: "Default Region",
+//   countries: [],
+//   currency_code: "usd",
+//   tax_rate: 0,
+//   // Add any other required properties of StoreRegion
+// }
 
 export const getRegion = cache(async function (countryCode: string) {
   try {

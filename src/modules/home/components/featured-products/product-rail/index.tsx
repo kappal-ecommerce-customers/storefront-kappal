@@ -9,7 +9,7 @@ export default function ProductRail({
   region,
 }: {
   collection: HttpTypes.StoreCollection
-  region: HttpTypes.StoreRegion
+  region?: HttpTypes.StoreRegion
 }) {
   const { products } = collection
 
