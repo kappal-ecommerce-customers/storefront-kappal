@@ -8,7 +8,7 @@ const Hero = async () => {
   return (<div>
     {/* Overlay Content */}
     <div className="w-full md:aspect-auto aspect-square relative bg-slate-300">
-      <img className="w-full h-full object-cover hidden lg:block" src="/in/images/banner.svg" />
+      <img className="w-full h-full object-cover hidden lg:block" src="/in/images/banner_lg.svg" />
       <img className="w-full h-full object-cover lg:hidden" src="/in/images/banner_mobile.svg" />
     </div>
     {/* Default image for larger screens */}
