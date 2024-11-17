@@ -5,20 +5,38 @@ import { getRegion } from "@lib/data/regions";
 
 const Hero = async () => {
   const region = (await getRegion("in") || undefined); // Fallback object
-  return (
-    <div className="h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle">
-      <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 lg:p40 gap-6">
-
-        <Image
-          src="/in/images/Banner_1.svg" // Path to your image
-          alt="Store Banner"
-          layout="fill"       // Makes the image fill the container
-          objectFit="cover"   // Ensures the image covers the container
-          priority            // Optional: for faster loading
-        />
-      </div>
-     <ProductList countryCode="in"/>
+  return (<div>
+    {/* Overlay Content */}
+    <div className="w-full md:aspect-auto aspect-square relative bg-slate-300">
+      <img className="w-full h-full object-cover hidden lg:block" src="/in/images/banner.svg" />
+      <img className="w-full h-full object-cover lg:hidden" src="/in/images/banner_mobile.svg" />
     </div>
+    {/* Default image for larger screens */}
+    {/* <Image
+      src="/in/images/banner.svg"
+      alt="Store Banner"
+      layout="fill"
+      objectFit="contain"   // Ensures the image covers the container, cropping if needed
+      priority
+      className="object-scale-down max-h-full drop-shadow-md rounded-md m-auto hidden md:block"   // Hide for smaller screens
+    /> */}
+    <div>
+    {/* Mobile-specific image */}
+    {/* <Image
+      src="/in/images/banner_mobile.svg"
+      alt="Store Banner Mobile"
+      layout="fill"
+      objectFit="contain"  // Ensures the image covers the container, cropping if needed
+      priority
+      className="sm:hidden"  // Only show on small screens
+    /> */}
+  </div>
+  
+    {/* Product List */ }
+  <ProductList countryCode="in" />
+  </div >
+  
+
   )
 }
 
