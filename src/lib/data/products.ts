@@ -89,6 +89,34 @@ export const getProductsList = cache(async function ({
     })
 })
 
+export const getHomePageProducts = cache(async function (): Promise<{
+  response: { products: HttpTypes.StoreProduct[]; count: number }
+}> {
+  const limit = 12; // Default limit for homepage products
+  const offset = 0; // Start at the first page
+
+  return sdk.store.product
+    .list(
+      {limit:4,
+        offset: 4
+      }
+    )
+    .then(({ products, count }) => {
+      return {
+        response: {
+          products,
+          count,
+        },
+      };
+    })
+    .catch((error) => {
+      console.error("Error fetching homepage products:", error);
+      return {
+        response: { products: [], count: 0 },
+      };
+    });
+});
+
 /**
  * This will fetch 100 products to the Next.js cache and sort them based on the sortBy parameter.
  * It will then return the paginated products based on the page and limit parameters.

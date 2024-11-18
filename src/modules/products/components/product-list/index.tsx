@@ -1,4 +1,4 @@
-import { getProductsList } from "@lib/data/products"
+import { getHomePageProducts, getProductsList } from "@lib/data/products"
 import { getRegion } from "@lib/data/regions"
 import { HttpTypes } from "@medusajs/types"
 import Product from "../product-preview"
@@ -15,8 +15,6 @@ export default async function ProductList({
   if (!region) {
     return null
   }
-
-  // edit this function to define your related products logic
   const queryParams: HttpTypes.StoreProductParams = {}
   if (region?.id) {
     queryParams.region_id = region.id
@@ -24,10 +22,7 @@ export default async function ProductList({
   
   queryParams.is_giftcard = false
 
-  const products = await getProductsList({
-    queryParams,
-    countryCode,
-  }).then(({ response }) => {
+  const products = await getHomePageProducts().then(({ response }) => {
     return response.products
   })
 
@@ -36,13 +31,10 @@ export default async function ProductList({
   }
 
   return (
-    <div className="product-page-constraint">
+    <div className="product-page-constraint px-5 lg:px-10">
       <div className="flex flex-col items-center text-center mb-16">
-        <span className="text-base-regular text-gray-600 mb-6">
-          Related products
-        </span>
-        <p className="text-2xl-regular text-ui-fg-base max-w-lg">
-          You might also want to check out these products.
+        <p className="text-2xl-regular text-ui-fg-base max-w-lg mt-10">
+          Our Latest Collections
         </p>
       </div>
 
