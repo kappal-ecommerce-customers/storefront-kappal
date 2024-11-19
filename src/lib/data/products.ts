@@ -89,16 +89,21 @@ export const getProductsList = cache(async function ({
     })
 })
 
-export const getHomePageProducts = cache(async function (): Promise<{
+export const getHomePageProducts = cache(async function ({ countryCode
+}:{countryCode:string}): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
 }> {
   const limit = 12; // Default limit for homepage products
   const offset = 0; // Start at the first page
+  
+  const region = await getRegion(countryCode)
 
   return sdk.store.product
     .list(
-      {limit:4,
-        offset: 4
+      {
+        limit:4,
+        offset: 4,
+        region_id:region?.id
       }
     )
     .then(({ products, count }) => {

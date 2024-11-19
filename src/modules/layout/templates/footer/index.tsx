@@ -5,7 +5,7 @@ import { StoreRegion } from "@medusajs/types"
 import { Text, clx } from "@medusajs/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import KappalCTA from "@modules/layout/components/kappal-cta"
-import FooterMenu from "@modules/layout/components/footer-menu"
+import FooterMenu from "@modules/layout/components/country-menu"
 
 export default async function Footer() {
   const { collections } = await getCollectionsList(0, 6)

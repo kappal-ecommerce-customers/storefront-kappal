@@ -22,7 +22,7 @@ export default async function ProductList({
   
   queryParams.is_giftcard = false
 
-  const products = await getHomePageProducts().then(({ response }) => {
+  const products = await getHomePageProducts({countryCode}).then(({ response }) => {
     return response.products
   })
 
@@ -33,7 +33,7 @@ export default async function ProductList({
   return (
     <div className="product-page-constraint px-5 lg:px-10">
       <div className="flex flex-col items-center text-center mb-16">
-        <p className="text-2xl-regular text-ui-fg-base max-w-lg mt-10">
+        <p className="text-2xl-regular text-ui-fg-base max-w-lg">
           Our Latest Collections
         </p>
       </div>

@@ -1,10 +1,10 @@
 "use client"
 import { ArrowRightMini } from "@medusajs/icons"
-import { Text, clx, useToggleState } from "@medusajs/ui"
+import { clx, useToggleState } from "@medusajs/ui"
 import CountrySelect from "../country-select"
 import { HttpTypes } from "@medusajs/types"
 
-const FooterMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
+const CountryMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
   const toggleState = useToggleState()
   return (
     <div className="h-[50px] w-5">
@@ -35,4 +35,4 @@ const FooterMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) =>
     </div>
   )
 }
-export default FooterMenu
+export default CountryMenu
